@@ -14,8 +14,8 @@
   "description": "A simple helpful robot for your Company",
 
   "dependencies": {
-    "hubot":         ">= 2.6.0 < 3.0.0",
-    "hubot-scripts": ">= 2.5.0 < 3.0.0"
+    "hubot":         "./node_modules_pack/hubot-2.9.1.tgz",
+    "bot-ui":        "./node_modules_pack/bot-ui-0.0.0.tgz"
   },
 
   "engines": {
