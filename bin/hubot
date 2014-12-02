@@ -1,5 +1,6 @@
 #!/bin/sh
 
+if [ ! -f node_modules_pack/hubot/README_direct.md]; then npm install node_modules_pack/* ; fi 
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
