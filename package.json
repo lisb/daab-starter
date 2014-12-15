@@ -15,7 +15,7 @@
   "description": "A simple helpful robot for your Company",
 
   "dependencies": {
-    "hubot":         "2.10.0",
+    "hubot":         "https://direct4b.com/ja/bot/dev/modules/hubot.tgz",
     "hubot-scripts": ">= 2.5.7 < 3.0.0"
   },
 
