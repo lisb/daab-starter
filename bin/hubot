@@ -2,5 +2,10 @@
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
-exec node_modules/.bin/hubot -d -a direct "$@"
+if [ -z "$HUBOT_DIRECT_TOKEN" ]; then
+  exec node_modules/.bin/hubot -a direct "$@"
+else
+  forever start --minUptime 1000 --spinSleepTime 1000 -o hubot.log -a -w \
+    -c coffee node_modules/.bin/hubot -a direct "$@"
+fi
 
