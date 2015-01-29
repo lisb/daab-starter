@@ -2,10 +2,28 @@
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
-if [ -z "$HUBOT_DIRECT_TOKEN" ]; then
-  exec node_modules/.bin/hubot -a direct "$@"
-else
-  forever start --minUptime 1000 --spinSleepTime 1000 -o hubot.log -a -w --watchDirectory scripts/ \
+FID=${PWD##*/}
+
+case $1 in
+start)
+  forever start \
+    --uid "$FID" \
+    --minUptime 10000 --spinSleepTime 600000 \
+    -o hubot.log -a \
+    -w --watchDirectory scripts/ \
     -c coffee node_modules/.bin/hubot -a direct "$@"
-fi
+  ;;
+stop|restart)
+  forever $1 "$FID"
+  ;;
+status)
+  forever list | grep "] $FID "
+  ;;
+logs)
+  tail -f hubot.log
+  ;;
+*)
+  exec node_modules/.bin/hubot -a direct "$@"
+  ;;
+esac
 
