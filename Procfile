@@ -1,1 +1,1 @@
-web: bin/hubot -a direct -n Hubot
+web: bin/hubot run

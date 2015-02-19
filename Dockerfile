@@ -15,5 +15,5 @@ EXPOSE 8080
 
 # hubot files
 ADD . $WD/
-CMD bin/hubot start && bin/hubot logs
+CMD bin/hubot run
 

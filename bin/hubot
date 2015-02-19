@@ -3,15 +3,20 @@ npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
 FID=${PWD##*/}
+FOPT="\
+    --uid \"$FID\" \
+    --minUptime 10000 --spinSleepTime 600000 \
+    -o hubot.log -e hubot-err.log -a \
+    -w --watchDirectory scripts/ \
+    -c coffee node_modules/.bin/hubot -a direct \"$@\" \
+"
 
 case $1 in
+run)
+  forever $FOPT
+  ;;
 start)
-  forever start \
-    --uid "$FID" \
-    --minUptime 10000 --spinSleepTime 600000 \
-    -o hubot.log -a \
-    -w --watchDirectory scripts/ \
-    -c coffee node_modules/.bin/hubot -a direct "$@"
+  forever start $FOPT
   ;;
 stop|restart)
   forever $1 "$FID"
