@@ -2,6 +2,10 @@
 npm install
 export PATH="node_modules/.bin:node_modules/hubot/node_modules/.bin:$PATH"
 
+if [ -f .env ]; then
+  `grep '^[^# ]*=' .env | sed 's/^/export /'`
+fi
+
 FID=${PWD##*/}
 FOPT="\
     --uid \"$FID\" \
