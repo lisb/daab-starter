@@ -10,7 +10,7 @@ for /f "delims=\" %%i in ("%CD%") do set UID=%%i
 
 if "%1" == "start" (
   forever start ^
-    --uid "%UID%"
+    --uid "%UID%" ^
     --minUptime 10000 --spinSleepTime 600000 ^
     -o hubot.log -a ^
     -w --watchDirectory scripts ^
