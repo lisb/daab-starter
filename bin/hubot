@@ -21,6 +21,10 @@ run)
   forever $FOPT
   ;;
 start)
+  if pgrep -fo $PWD/node_modules/.bin/hubot > /dev/null ; then
+    echo "${FID} already Started: "
+    exit 1
+  fi
   forever start $FOPT
   ;;
 stop|restart)
