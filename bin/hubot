@@ -7,8 +7,9 @@ if [ -f .env ]; then
 fi
 
 FID=${PWD##*/}
+FID=${FID// /_}
 FOPT="\
-    --uid \"$FID\" \
+    --uid $FID \
     --minUptime 10000 --spinSleepTime 600000 \
     -o hubot.log -e hubot-err.log -a \
     -w --watchDirectory scripts/ \
@@ -23,7 +24,7 @@ start)
   forever start $FOPT
   ;;
 stop|restart)
-  forever $1 "$FID"
+  forever $1 $FID
   ;;
 status)
   forever list | grep "] $FID "
