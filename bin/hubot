@@ -16,6 +16,10 @@ FOPT="\
     -c coffee node_modules/.bin/hubot -a direct $@ \
 "
 
+if [ "$REDIS_URL" = "" ]; then
+  export REDIS_URL=redis://localhost:6379/$FID
+fi
+
 case $1 in
 run)
   forever $FOPT

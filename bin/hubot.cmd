@@ -8,6 +8,10 @@ call npm install
 
 for /f "delims=\" %%i in ("%CD%") do set UID=%%i
 
+if "%REDIS_URL%" = "" (
+  set REDIS_URL=redis://localhost:6379/%UID%
+)
+
 if "%1" == "start" (
   forever start ^
     --uid "%UID%" ^
