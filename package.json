@@ -15,7 +15,7 @@
   "description": "A simple helpful robot for your Company",
 
   "dependencies": {
-    "hubot":         "git://github.com/lisb/hubot.git#0532d01038d817ceafc9128059a2bb17068c4026",
+    "lisb-hubot":    "^2.16.0",
     "hubot-scripts": ">= 2.5.7 < 3.0.0",
     "forever": "0.13.0"
   },
