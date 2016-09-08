@@ -8,6 +8,8 @@ call npm install
 
 for /f "delims=\" %%i in ("%CD%") do set UID=%%i
 
+for /f "tokens=1,2 delims==" %%i in (.env) do set %%i=%%j
+
 if "%REDIS_URL%" == "" (
   set REDIS_URL=redis://localhost:6379/%UID%
 )
