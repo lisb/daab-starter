@@ -1,4 +1,6 @@
 #!/bin/bash
+set -eu
+
 npm install
 export PATH="node_modules/.bin:node_modules/lisb-hubot/node_modules/.bin:$PATH"
 
@@ -16,7 +18,7 @@ FOPT="\
     -c coffee node_modules/.bin/hubot -a direct ${@:2:$#} \
 "
 
-if [ "$REDIS_URL" = "" ]; then
+if [ -z "${REDIS_URL-}" ]; then
   export REDIS_URL=redis://localhost:6379/$FID
 fi
 
