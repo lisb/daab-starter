@@ -17,7 +17,7 @@
   "dependencies": {
     "lisb-hubot":    "^2.16.0",
     "lisb-hubot-redis-brain": "^0.0.3",
-    "forever": "^0.15.3"
+    "lisb-forever": "^0.15.3"
   },
 
   "engines": {
