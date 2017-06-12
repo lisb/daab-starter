@@ -20,7 +20,7 @@ module.exports = (robot) => {
     res.send(res.match[1]);
   });
 
-  robot.respond(/TIßE$/i, (res) => {
+  robot.respond(/TIME$/i, (res) => {
     res.send(`Server time is: ${new Date()}`);
   });
 };
