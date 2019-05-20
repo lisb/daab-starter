@@ -15,13 +15,13 @@
   "description": "A simple helpful robot for your Company",
 
   "dependencies": {
-    "lisb-hubot":    "^2.16.0",
-    "lisb-hubot-redis-brain": "^0.0.3",
-    "lisb-forever": "^0.15.3"
+    "lisb-hubot":    "^3.3.2",
+    "lisb-hubot-redis-brain": "^1.0.0",
+    "lisb-forever": "^1.0.0"
   },
 
   "engines": {
-    "node": ">= 0.8.x",
-    "npm":  ">= 1.1.x"
+    "node": "> 4.0.0",
+    "npm":  "> 2.0.0"
   }
 }
