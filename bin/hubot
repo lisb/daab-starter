@@ -1,7 +1,9 @@
-#!/bin/bash
+#!/bin/sh
 set -eu
 
-npm install
+if [ "$DISABLE_NPM_INSTALL" = "" ]; then
+  npm install
+fi
 export PATH="node_modules/.bin:node_modules/lisb-hubot/node_modules/.bin:$PATH"
 
 if [ -f .env ]; then

@@ -1,6 +1,6 @@
 {
   "name": "starter",
-  "version": "0.3.6",
+  "version": "0.3.8",
   "private": true,
 
   "author": "L is B corp.",
@@ -18,10 +18,5 @@
     "lisb-hubot":    "^3.3.2",
     "lisb-hubot-redis-brain": "^1.0.0",
     "lisb-forever": "^1.0.0"
-  },
-
-  "engines": {
-    "node": "> 4.0.0",
-    "npm":  "> 2.0.0"
   }
 }

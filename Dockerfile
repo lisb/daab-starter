@@ -1,19 +1,31 @@
-FROM node:6
+FROM node:10 AS node_modules
+
+WORKDIR /daab
+COPY package.json .
+RUN npm install
+
+
+FROM node:10-alpine
 
 MAINTAINER masataka.takeuchi
 
-ENV WD /daab
-WORKDIR $WD
+# set timezone JST
+RUN apk --no-cache add tzdata && \
+    cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
-# install dependencies
-ADD package.json $WD/
-RUN npm install
+ENV NODE_ENV production
+ENV DISABLE_NPM_INSTALL true
+ENV HUBOT_ADAPTER=direct
 
 # httpd setting
 # ENV PORT 8080
 EXPOSE 8080
 
 # hubot files
-ADD . $WD/
-CMD bin/hubot run
+WORKDIR /daab
+COPY --from=node_modules /daab .
+COPY external-scripts.json .
+COPY bin bin
+COPY scripts scripts
 
+CMD bin/hubot run
