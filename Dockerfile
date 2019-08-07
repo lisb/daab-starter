@@ -13,6 +13,8 @@ MAINTAINER masataka.takeuchi
 RUN apk --no-cache add tzdata && \
     cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
+RUN apk --no-cache add bash
+
 ENV NODE_ENV production
 ENV DISABLE_NPM_INSTALL true
 ENV HUBOT_ADAPTER=direct
