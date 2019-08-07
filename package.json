@@ -3,6 +3,10 @@
   "version": "0.3.9",
   "private": true,
 
+  "scripts": {
+    "start": "bin/hubot run"
+  },
+  
   "author": "L is B corp.",
 
   "keywords": [
