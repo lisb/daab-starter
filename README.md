@@ -1,4 +1,4 @@
-# NOTE: As of daab@0.1.12, template files are now in the <https://github.com/lisb/daab/tree/master/template>.
+# NOTE: As of daab@0.1.12, template files are now in the [lisb/daab](https://github.com/lisb/daab/tree/master/template).
 
 # daab
 
